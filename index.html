@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stone paper scissor game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Stone Paper Scissors Game</h1>
+
+    <button id="stone" class="choice" onclick="
+        let randomNumber = Math.random() * 3;
+        let computerChoice;
+
+        if (randomNumber <= 1) {
+            computerChoice = 'stone';
+        }
+        else if (randomNumber <= 2) {
+            computerChoice = 'paper';
+        }
+        else {
+            computerChoice = 'scissors';
+        }
+
+        let resultMsg;
+
+        if (computerChoice === 'stone') {
+            resultMsg = 'It is a tie.';
+        }
+        else if (computerChoice === 'paper') {
+            resultMsg = 'Computer won.';
+        }
+        else {
+            resultMsg = 'User won.';
+        }
+
+        alert('You choose Stone. Computer choose ' + computerChoice + '. ' + resultMsg);
+    "> Stone
+    </button>
+            <button id="paper" class="choice" onclick="
+        let randomNumber = Math.random() * 3;
+        let computerChoice;
+
+        if (randomNumber <= 1) {
+            computerChoice = 'stone';
+        }
+        else if (randomNumber <= 2) {
+            computerChoice = 'paper';
+        }
+        else {
+            computerChoice = 'scissors';
+        }
+
+        let resultMsg;
+
+        if (computerChoice === 'paper') {
+            resultMsg = 'It is a tie.';
+        }
+        else if (computerChoice === 'scissors') {
+            resultMsg = 'Computer won.';
+        }
+        else {
+            resultMsg = 'User won.';
+        }
+
+        alert('You choose paper. Computer choose ' + computerChoice + '. ' + resultMsg);
+        ">Paper</button>
+
+        
+
+            <button id="scissor" class="choice" onclick="
+        let randomNumber = Math.random() * 3;
+        let computerChoice;
+
+        if (randomNumber <= 1) {
+            computerChoice = 'stone';
+        }
+        else if (randomNumber <= 2) {
+            computerChoice = 'paper';
+        }
+        else {
+            computerChoice = 'scissors';
+        }
+
+        let resultMsg;
+
+        if (computerChoice === 'scissors') {
+            resultMsg = 'It is a tie.';
+        }
+        else if (computerChoice === 'stone') {
+            resultMsg = 'Computer won.';
+        }
+        else {
+            resultMsg = 'User won.';
+        }
+
+        alert('You choose scissors. Computer choose ' + computerChoice + '. ' + resultMsg);"
+        >Scissor</button>
+        </div>
+        
+
+    <script src="script.js"></script>
+</body>
+</html>

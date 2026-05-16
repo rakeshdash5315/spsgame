@@ -1,0 +1,163 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    gap: 28px;
+    padding: 44px 18px;
+    text-align: center;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #17202a;
+    background:
+        radial-gradient(circle at 15% 18%, rgba(255, 209, 102, 0.34), transparent 26%),
+        radial-gradient(circle at 84% 12%, rgba(17, 138, 178, 0.22), transparent 28%),
+        radial-gradient(circle at 50% 100%, rgba(239, 71, 111, 0.20), transparent 34%),
+        linear-gradient(135deg, #f9fbff 0%, #e8f2f5 48%, #fff6e7 100%);
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 18px;
+    z-index: -1;
+    border: 1px solid rgba(23, 32, 42, 0.10);
+    border-radius: 28px;
+    background:
+        linear-gradient(rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0.40)),
+        url("data:image/svg+xml,%3Csvg width='160' height='160' viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%2317202a' stroke-opacity='.09' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M39 41c17-15 42-11 48 7 8 23-9 48-34 49-25 2-43-20-34-38 4-8 11-13 20-18Z'/%3E%3Cpath d='M105 37h35v46h-35zM112 46h21M112 58h21M112 70h14'/%3E%3Cpath d='M38 121l25-25M42 96l25 25M97 103l24 24M121 103l-24 24'/%3E%3C/g%3E%3C/svg%3E");
+    box-shadow: 0 24px 80px rgba(36, 59, 85, 0.16);
+}
+
+h1 {
+    flex: 0 0 100%;
+    margin: 0 0 8px;
+    font-size: clamp(2rem, 5vw, 4.6rem);
+    line-height: 1;
+    letter-spacing: 0;
+    color: #101820;
+    text-shadow: 0 5px 0 rgba(255, 255, 255, 0.85);
+}
+
+h1::after {
+    content: "Choose your move";
+    display: block;
+    margin-top: 16px;
+    font-size: clamp(0.95rem, 2.2vw, 1.2rem);
+    font-weight: 700;
+    color: #465362;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+}
+
+.choice {
+    position: relative;
+    width: min(260px, 88vw);
+    aspect-ratio: 1 / 1.05;
+    border: 0;
+    border-radius: 24px;
+    padding: 178px 22px 24px;
+    cursor: pointer;
+    isolation: isolate;
+    font-size: 1.45rem;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    color: #16202a;
+    background-color: rgba(255, 255, 255, 0.84);
+    background-position: center 28px;
+    background-repeat: no-repeat;
+    background-size: 132px 132px;
+    box-shadow:
+        0 22px 44px rgba(37, 54, 72, 0.18),
+        inset 0 0 0 2px rgba(255, 255, 255, 0.84);
+    transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+}
+
+.choice::before {
+    content: "";
+    position: absolute;
+    inset: 16px;
+    z-index: -1;
+    border-radius: 18px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.24));
+}
+
+.choice::after {
+    content: "Play";
+    display: block;
+    width: fit-content;
+    margin: 12px auto 0;
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    line-height: 1;
+    color: #fff;
+    background: #101820;
+    box-shadow: 0 8px 18px rgba(16, 24, 32, 0.20);
+}
+
+.choice:hover {
+    transform: translateY(-10px) scale(1.03);
+    filter: saturate(1.08);
+    box-shadow:
+        0 30px 58px rgba(37, 54, 72, 0.24),
+        inset 0 0 0 2px rgba(255, 255, 255, 0.92);
+}
+
+.choice:active {
+    transform: translateY(-2px) scale(0.99);
+}
+
+.choice:focus-visible {
+    outline: 5px solid rgba(17, 138, 178, 0.36);
+    outline-offset: 5px;
+}
+
+#stone {
+    background-color: #eef2f3;
+    background-image:
+        radial-gradient(circle at 50% 32%, rgba(255, 255, 255, 0.92) 0 16%, transparent 17%),
+        url("data:image/svg+xml,%3Csvg width='180' height='180' viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='25' y1='25' x2='150' y2='150'%3E%3Cstop stop-color='%23b9c3cb'/%3E%3Cstop offset='1' stop-color='%235d6975'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M47 55c22-26 66-30 88-4 25 29 18 78-15 95-36 19-86 2-98-32C14 91 26 69 47 55Z' fill='url(%23g)'/%3E%3Cpath d='M54 58c20-14 47-17 68-4' fill='none' stroke='%23eef2f3' stroke-opacity='.78' stroke-width='12' stroke-linecap='round'/%3E%3Cpath d='M46 115c20 22 56 27 82 10' fill='none' stroke='%233d4852' stroke-opacity='.28' stroke-width='10' stroke-linecap='round'/%3E%3Ccircle cx='59' cy='88' r='8' fill='%2377818c' fill-opacity='.7'/%3E%3Ccircle cx='110' cy='86' r='10' fill='%2377818c' fill-opacity='.45'/%3E%3C/svg%3E");
+}
+
+#paper {
+    background-color: #fff7df;
+    background-image:
+        radial-gradient(circle at 50% 32%, rgba(255, 255, 255, 0.92) 0 16%, transparent 17%),
+        url("data:image/svg+xml,%3Csvg width='180' height='180' viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M48 22h71l28 29v106H48z' fill='%23fffdf4'/%3E%3Cpath d='M119 22v29h28' fill='%23f2d06b'/%3E%3Cpath d='M48 22h71l28 29v106H48z' fill='none' stroke='%23d9a624' stroke-width='8' stroke-linejoin='round'/%3E%3Cpath d='M70 72h54M70 94h54M70 116h40' stroke='%237b8794' stroke-width='8' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+#scissor {
+    background-color: #f9e5ec;
+    background-image:
+        radial-gradient(circle at 50% 32%, rgba(255, 255, 255, 0.92) 0 16%, transparent 17%),
+        url("data:image/svg+xml,%3Csvg width='180' height='180' viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M67 94 132 35M66 87l68 58' stroke='%23798694' stroke-width='13'/%3E%3Cpath d='M57 85c13 11 11 32-5 39-15 7-33-3-35-19-2-17 16-31 31-23 3 1 6 2 9 3ZM57 95c13-11 11-32-5-39-15-7-33 3-35 19-2 17 16 31 31 23 3-1 6-2 9-3Z' stroke='%23ef476f' stroke-width='9' fill='%23fff'/%3E%3Cpath d='M132 35l21-17M134 145l20 16' stroke='%23f6c85f' stroke-width='11'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+@media (max-width: 760px) {
+    body {
+        align-content: flex-start;
+        gap: 18px;
+        padding-top: 36px;
+    }
+
+    body::before {
+        inset: 10px;
+        border-radius: 20px;
+    }
+
+    .choice {
+        width: min(330px, 92vw);
+        aspect-ratio: 1.35 / 1;
+        padding: 130px 18px 18px;
+        background-position: center 18px;
+        background-size: 100px 100px;
+        border-radius: 20px;
+    }
+}
