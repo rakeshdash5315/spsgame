@@ -1,3 +1,8 @@
+const score = {
+    wins: 0,
+    losses: 0
+};
+
 function getComputerChoice() {
     const randomNumber = Math.floor(Math.random() * 3);
 
@@ -29,11 +34,30 @@ function getResult(userMove, computerMove) {
     }
 }
 
+function updateScoreDisplay() {
+    document.querySelector('#wins').textContent = score.wins;
+    document.querySelector('#losses').textContent = score.losses;
+}
+
 function playGame(userMove) {
     const computerChoice = getComputerChoice();
     const resultMsg = getResult(userMove, computerChoice);
 
-    alert('You chose ' + userMove + '. Computer chose ' + computerChoice + '. ' + resultMsg);
+    if (resultMsg === 'You won.') {
+        score.wins += 1;
+    } else if (resultMsg === 'Computer won.') {
+        score.losses += 1;
+    }
+
+    updateScoreDisplay();
+
+    alert(
+        'You chose ' + userMove +
+        '. Computer chose ' + computerChoice +
+        '. ' + resultMsg +
+        '\nWins: ' + score.wins +
+        '\nLosses: ' + score.losses
+    );
 }
 
 document.querySelector('#stone').addEventListener('click', function () {
